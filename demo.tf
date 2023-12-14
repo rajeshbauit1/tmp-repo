@@ -1,20 +1,7 @@
-locals {
-  arr = ["host1", "host2", "host3"]
+provider "aws" {
+  region     = "ap-southeast-2"
 }
-
-
-locals {
-  arr2 = ["host1", "host2", "host3"]
-}
-
-locals {
-  arr3 = ["host1", "host2", "host3"]
-}
-
-output "test" {
-  value = local.arr
-}
-
-output "tes2" {
-  value = local.arr3
+resource "aws_instance" "myec2" {
+   ami = "ami-0ed828ae690ef8b35"
+   instance_type = "t2.micro"
 }
